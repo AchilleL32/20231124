@@ -1,5 +1,5 @@
 #import des packages 
-import pandas
+import pandas as pd
 import numpy as np 
 from math import sin
 
@@ -21,7 +21,7 @@ while x < 10:
     x += 1
     if x % 2 == 0:
         continue  # Saute les nombres pairs
-    print(i)
+    print(x)
     
 # Boucle for 
 
@@ -45,9 +45,9 @@ for num in range(1, 11):  # Itère de 1 à 10
 try:
     resultat = a / b
 except ZeroDivisionError:
-    return "Erreur : Division par zéro."
+    resultat = "Erreur : Division par zéro."
 
-def function_name(argument1 , argument2 = variable_par_défaut): 
+def function_name(argument1 , argument2 = 48): 
     
     argument_total = argument1 * argument2 
     
@@ -59,26 +59,32 @@ y = function_name(1)
 ## Utilisation de pandas 
 
 # Lecture d'un fichier CSV
-df = pd.read_csv('chemin/vers/votre/fichier.csv')
-
+#df = pd.read_csv('chemin/vers/votre/fichier.csv')
+df = pd.read_csv('dataframe_ex.csv')
 # Affichage des premières et dernières lignes du DataFrame
 print(df.head())
 print(df.tail(n=5))
 
 # Sélection de colonnes spécifiques
-colonne_specifique = df['NomColonne']
+#colonne_specifique = df['NomColonne']
+age = df["Age"]
 
 # Filtrage basé sur une condition
 donnees_filtrees = df[df['Age'] > 30]
 
-# Création d'une nouvelle colonne
-df['NouvelleColonne'] = df['Colonne1'] + df['Colonne2']
+# Prendre les 2 premières colonnes de données 
+donnees_select = df.iloc[:,:2]
 
+
+# Création d'une nouvelle colonne
+#df['NouvelleColonne'] = df['Colonne1'] + df['Colonne2']
+df['NouvelleColonne'] = df['Age'] *2
 # Remplacer les valeurs manquantes par une valeur spécifique
 df.fillna(value=0, inplace=True)
 
 # Combiner 2 Dataframe ensemble
-df = pd.merge(df1,df2)
+#df = pd.merge(df1,df2)
+df = pd.merge(df,df)
 
 # Supprimer les lignes avec des valeurs manquantes
 df.dropna(inplace=True)
