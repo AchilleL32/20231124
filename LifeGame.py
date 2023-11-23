@@ -47,7 +47,7 @@ def update(surface, cur, sz):
     return nxt
 
 # Load a predefined pattern from a numpy array
-openedarray = np.load('C:/Users/jeanc/Desktop/Languages/New folder/game life/numpy_array.npy')
+openedarray = np.load('numpy_array.npy')
 
 def init(dimx, dimy):
     """
@@ -64,7 +64,11 @@ def init(dimx, dimy):
     cells = np.zeros((dimy, dimx))
     pattern = openedarray
     pos = (3, 3)
-    cells[pos[0]:pos[0]+pattern.shape[0], pos[1]:pos[1]+pattern.shape[1]] = pattern
+    # Redimensionner pattern pour qu'il rentre dans cells
+    pattern_resized = pattern[:min(pattern.shape[0], cells.shape[0] - pos[0]), :min(pattern.shape[1], cells.shape[1] - pos[1])]
+    cells[pos[0]:pos[0]+pattern_resized.shape[0], pos[1]:pos[1]+pattern_resized.shape[1]] = pattern_resized
+
+    #cells[pos[0]:pos[0]+pattern.shape[0], pos[1]:pos[1]+pattern.shape[1]] = pattern
     return cells
 
 def main(dimx, dimy, cellsize):

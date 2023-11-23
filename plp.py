@@ -3,7 +3,7 @@ from PIL import Image
 import copy
 
 # Load the image using PIL
-image_path = 'Logo-Tesla.jpg'
+image_path = 'Logo_Tesla.jpg'
 
 image = Image.open(image_path)
 
