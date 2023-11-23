@@ -2,4 +2,4 @@
 Python 001, séance intro python Club de Trading. 
 Télechargez tous les autres documents pour débuter la séance. 
 
-Cliquer sur le bouton Code au dessus et téléchargez le fichier zip. 
+Cliquez sur le bouton Code au dessus et téléchargez le fichier zip. 
